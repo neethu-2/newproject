@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %} 
+		<center><h2>uploading images and detail</h2>
+	{% endblock %}
+</head>
+
+<body>
+	{% block content %}
+		<form action="{% url 'mynewapp:image' %}" method='post' enctype="multipart/form-data" >
+		{% csrf_token %}
+		<center>
+		<table border="5" style="border_style:double;">
+			<tr>
+				<td>
+
+					{{ form.as_table }}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type ="submit"name="upload",value="upload">
+				</td>
+			</tr>
+		</table>
+		</center>
+</form>
+</body>
+{% endblock %}
+</html>
+
+

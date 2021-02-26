@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+		<form action="{% url 'mynewapp:user_home' user.id %}" method=post enctype="multipart/form-data">
+			{% csrf_token %}
+			{% if user %}
+				<img src="{{ user.Photo.url }}" style="width:250px;height:250px">
+				
+				<a href="/delete/{{ user.id }}">Delete</a>
+
+			{% endif %}
+
+	</form>
+	
+
+
+		<div>
+			<tr>
+				<td>Success</td>
+			</tr>
+			<tr>
+				<td><a href="{% url 'mynewapp:show' user.id %}">show</a>
+				</td>
+			</tr>
+			<tr>
+				<td><a href="{% url 'mynewapp:changepassword' user.id %}">changepassword</a>
+				</td>
+			</tr>
+			<tr>
+				<td><a href="{% url 'mynewapp:image' %}">image</a>
+				</td>
+			</tr>
+
+
+
+		</div>
+
+
+	</form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+
+<body>
+	{% block content %}
+		<form action="{% url 'mynewapp:about' Img.id %}" method='post' enctype="multipart/form-data" >
+		{% csrf_token %}
+		
+		<table>
+				{% if Img %}
+			
+				<tr>
+					<td>
+						<h2 style="text _align:center;">About</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="Name" value="{{Img.Name}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" name="Price" value="{{Img.Price}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Location:</td>
+					<td><input type="text" name="Location" value="{{Img.Location}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Colour:</td>
+					<td><input type="text" name="Colour" value="{{Img.Colour}}">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Photo:</td>
+					<td><img src ="{{Img.Photo.url}}" style="width:60px;height:60px"></td>
+				</tr>
+				{% endif %}
+			</form>
+		</table>
+	</form>
+	{% endblock %}
+</body>
+</html>
+			

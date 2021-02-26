@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1> Registration Form</h1>
+    <h2> registration</h2>
+    
+    
+</head>
+<body>
+    {% block content %}
+    <div>
+        <form action="{% url 'mynewapp:user_reg' %}" method=post enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    {{ form.as_table }}
+                </tr>
+            </table>
+            <input type="submit" value="Register" name="Submit">
+        </form>
+    </div>
+   {% endblock %} 
+</body>
+</html>

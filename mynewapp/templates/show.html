@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %} 
+		<center><h2>update {{ users.Name }}'s Profile</h2>
+	{% endblock %}
+</head>
+
+<body>
+	{% block content %}
+		<form action="{% url 'mynewapp:show' users.id %}" method='post' enctype="multipart/form-data" >
+		<!-- <tr>
+			<td><a href="{% url 'mynewapp:show' user.id %}">show</a>
+			</td>
+		</tr> -->
+		<!-- <tr>
+			<td><a href="{% url 'mynewapp:changepassword' user.id %}">changepassword</a></td> -->
+		<!-- </tr> -->
+		
+
+		{% csrf_token %}
+		<center>
+		<table>
+			<form action="/show/{{users.id}}" mathod="post">
+				{% csrf_token %}
+			<table border="5" style="border_style:double;">
+				<tr>
+					<td>
+						<h2 style="text _align:center;">profile</h2>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="Name" value="{{users.Name}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><input type="text" name="Address"value="{{users.Address}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td><input type="text" name="Gender"value="{{users.Gender}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Maritialstatus:</td>
+					<td><input type="text" name="Maritialstatus"value="{{users.Maritialstatus}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Educationalqualification:</td>
+					<td><input type="text" name="Educationalqualification"value="{{users.Educationalqualification}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Languageknown:</td>
+					<td><input type="text" name="Languageknown"value="{{users.Languageknown}}">
+					</td>
+				</tr>
+					
+				<tr>
+					<td>District:</td>
+					<td><input type="text" name="District"value="{{users.District}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email"value="{{users.Email}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Photo:</td>
+					<td><img src ="{{users.Photo.url}}" style="width:60px;height:60px">
+					</td>
+				</tr>
+	
+
+		
+		</table>
+		<br><br>
+		<input type="submit" name="Update" value="Update">
+		</form>		
+	{% endblock %}	
+</body>
+</html>
